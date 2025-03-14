@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability Contributions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background-color: black;
+        }
+        .sidebar {
+            width: 280px;
+            background: #000000;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            box-shadow: 2px 0px 10px rgba(252, 251, 251, 0.425);
+        }
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar .sector {
+            padding: 15px;
+            margin: 10px 0;
+            background: #8a8b8a;
+            cursor: pointer;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+            font-weight: bold;
+            color: black;
+        }
+        .sidebar .sector:hover {
+            background: black;
+            color: white;
+            transform: scale(1.05);
+        }
+        .sidebar .sector.active {
+            background: black;
+            color: white;
+        }
+        .content-container {
+            margin-left: 300px;
+            padding: 40px;
+            flex: 1;
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(253, 253, 253, 0.445);
+            max-width: 900px;
+            margin-top: 30px;
+        }
+        .content-container h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            background: rgb(151, 149, 149);
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0px 0px 10px rgba(253, 252, 252, 0.493);
+        }
+        .content h3, .content p, .content ul li {
+            color: rgb(14, 0, 0);
+        }
+        .content ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Sectors</h2>
+        <div class="sector" onclick="showContent('gov', this)">Government & Municipal Authorities</div>
+        <div class="sector" onclick="showContent('corporate', this)">Corporate Sector</div>
+        <div class="sector" onclick="showContent('residential', this)">Residential Communities</div>
+        <div class="sector" onclick="showContent('tech', this)">Technology Companies</div>
+        <div class="sector" onclick="showContent('education', this)">Educational Institutions</div>
+        <div class="sector" onclick="showContent('citizens', this)">Citizens & Local Communities</div>
+    </div>
+    
+    <div class="content-container">
+        <h2>Sustainability Contributions</h2>
+        <div id="gov" class="content">
+            <h3>Government & Municipal Authorities</h3>
+            <p><strong>Primary Contributions:</strong> Policy development, regulations, large-scale funding, city-wide execution</p>
+            <ul>
+                <li>Provide tax incentives & subsidies for renewable energy, smart bins, and tree plantation.</li>
+                <li>Implement mandatory waste segregation laws for businesses & households.</li>
+                <li>Allocate funds for smart grids & AI-based traffic/waste management.</li>
+            </ul>
+        </div>
+        
+        <div id="corporate" class="content">
+            <h3>Corporate Sector (Industries & Businesses)</h3>
+            <p><strong>Primary Contributions:</strong> Financial investment, renewable energy adoption, employee participation</p>
+            <ul>
+                <li>Install solar panels & wind turbines on commercial buildings.</li>
+                <li>Implement waste reduction & recycling programs.</li>
+                <li>Fund public infrastructure projects like smart dustbins & urban greening.</li>
+            </ul>
+        </div>
+        
+        <div id="residential" class="content">
+            <h3>Residential Communities & Apartment Complexes</h3>
+            <p><strong>Primary Contributions:</strong> Decentralized renewable energy, waste segregation, local sustainability initiatives</p>
+            <ul>
+                <li>Mandate rooftop solar panels in new apartments.</li>
+                <li>Enforce waste segregation & composting at the community level.</li>
+                <li>Encourage community-based tree plantation & green spaces.</li>
+            </ul>
+        </div>
+        
+        <div id="tech" class="content">
+            <h3>Technology Companies & Startups</h3>
+            <p><strong>Primary Contributions:</strong> Developing smart infrastructure solutions using AI, IoT, and blockchain</p>
+            <ul>
+                <li>Create AI-driven waste tracking and collection systems.</li>
+                <li>Develop smart grid technology for solar & wind energy distribution.</li>
+                <li>Deploy IoT-based smart bins with real-time monitoring.</li>
+            </ul>
+        </div>
+        
+        <div id="education" class="content">
+            <h3>Educational Institutions & Research Centers</h3>
+            <p><strong>Primary Contributions:</strong> Innovation, R&D, and sustainability education</p>
+            <ul>
+                <li>Research advanced energy storage solutions.</li>
+                <li>Develop biodegradable waste-to-energy projects.</li>
+                <li>Launch public awareness campaigns on sustainability.</li>
+            </ul>
+        </div>
+        
+        <div id="citizens" class="content">
+            <h3>Citizens & Local Communities</h3>
+            <p><strong>Primary Contributions:</strong> Active participation in waste management, tree planting, and renewable energy adoption</p>
+            <ul>
+                <li>Separate wet & dry waste at the household level.</li>
+                <li>Shift to solar energy & reduce energy consumption.</li>
+                <li>Participate in community-driven sustainability programs.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        function showContent(id, element) {
+            var contents = document.querySelectorAll('.content');
+            var sectors = document.querySelectorAll('.sector');
+
+            // Hide all content sections
+            contents.forEach(content => content.style.display = 'none');
+
+            // Remove active class from all buttons
+            sectors.forEach(sector => {
+                sector.classList.remove('active');
+            });
+
+            // Show the selected content
+            var selectedContent = document.getElementById(id);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+
+            // Add active class to clicked button
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
